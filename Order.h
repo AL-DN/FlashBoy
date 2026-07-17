@@ -2,19 +2,21 @@
 // Date: 07/17.2026
 // Program Name: Order.h
 /* Program Description: 
-    Defines a Datatype that properly represents a users request to trade. 
-    That optimizes memory to be lightweight and searchable.
+    Declares an Order Datatype that properly represents a users request to trade. 
+    Optimized to be lightweight and quickly searched.
 */
 
 #include <cstdint>
 #include <chrono>
+#include "MarketTypes.h"
 
 class Order {
     private:
         bool is_active;
         std::string symbol;
+        ActionType action_type;
+        PriceType price_type;
         uint16_t quantity;
-        std::string price_type;
         std::chrono::time_point<std::chrono::system_clock> init_time;
         // std::chrono::time_point<std::chrono::system_clock> arrival_time;
         // std::chrono::time_point<std::chrono::system_clock> expiration_date;
@@ -24,9 +26,10 @@ class Order {
 
     public:
         //Constructor Declaration
-        Order(uint16_t quantity, std::string price_type,
+        Order(ActionType new_action_type, PriceType new_price_type, uint16_t new_quantity, 
             std::chrono::time_point<std::chrono::system_clock> new_init_time = std::chrono::system_clock::now(),
-            std::string symbol = "VOO", bool is_active = true);
+            std::string new_symbol = "VOO", bool new_is_active = true);
+
 
         // Getters
         void get_info();

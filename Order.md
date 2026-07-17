@@ -2,13 +2,13 @@
 
 **- std::string symbol** 
 
-**- std::string action** 
+**- enum action** 
     Description: (buy, buy to cover, sell)
 
 **- uint16_t quantity**
     - Always >=1 and fixed bit size ( can scale based on requirments like purchasing power with profile data. Q: How much do we need to store vs how much do we get back in speed? )
 
-**- std::string price_type** -> (market, market on close, limit, stop on quote, stop limit on quote, trailing stop $, trailing stop %)
+**- enum price_type** -> (market, market on close, limit, stop on quote, stop limit on quote, trailing stop $, trailing stop %)
 - double price 
     avail:
         - market, market on close -> None
