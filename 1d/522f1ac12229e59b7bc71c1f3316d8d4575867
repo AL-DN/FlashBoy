@@ -1,0 +1,28 @@
+MarketTypeHelpers.cpp
+  h_df99cb596cd5e6 12,26,37,41,44-45,47,49-50,52-53
+MarketTypes.h
+  s_01511277055249::t_8920b75cbc6fa9 17-19,21-22,50-53
+Order.cpp
+  s_01511277055249::t_a4ec87d61259c0 19-21,23,26-30,45-46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "1d522f1ac12229e59b7bc71c1f3316d8d4575867",
+  "prompts": {},
+  "humans": {
+    "h_df99cb596cd5e6": {
+      "author": "AL-DN <aldensahi50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_01511277055249": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ea392ee9-109a-4d11-8a60-ba1f1f9ae65f",
+        "model": "unknown"
+      },
+      "human_author": "AL-DN <aldensahi50@gmail.com>"
+    }
+  }
+}
