@@ -1,0 +1,16 @@
+PriceAction.md
+  h_df99cb596cd5e6 1-48
+PriceAction.h
+  h_df99cb596cd5e6 1-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "e11f893d74bd71a2688abb5d10500e97c4d9c813",
+  "prompts": {},
+  "humans": {
+    "h_df99cb596cd5e6": {
+      "author": "AL-DN <aldensahi50@gmail.com>"
+    }
+  }
+}
