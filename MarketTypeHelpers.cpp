@@ -9,6 +9,7 @@
 
 #include <string>
 #include <iostream>
+#include <cmath>
 #include "MarketTypes.h"
 
 std::string to_string(PriceType pt) {
@@ -22,7 +23,7 @@ std::string to_string(PriceType pt) {
         case PriceType::TrailingStopDollar:  return "TrailingStopDollar";
         case PriceType::TrailingStopPercent: return "TrailingStopPercent";
     }
-    return "unknown";
+    throw std::invalid_argument("[to_string] PriceType Defined but Unhandled Print Logic");
 }
 
 
@@ -33,25 +34,66 @@ std::string to_string(ActionType at) {
         case ActionType::Sell:               return "Sell";
         case ActionType::BuyOnCover:         return "BuyOnCover";
     }
-    return "unknown";
+    throw std::invalid_argument("[to_string] ActionType Defined but Unhandled Print Logic");
 }
 
 
-void to_string(PriceType pt, PriceValue pv) {
+std::string to_string(PriceType pt, PriceValue pv) {
     // Converts PriceType to a string (can only print fundamental types to console)
     /* PSUEDOCODE
-    
-    if not stoplimitonquote
+    if market/marketonclose we dont have values
+    else if not stoplimitonquote
         print threshold
-    else
+    else if stoplimitonquote
         print stop and limit
-    
+    else 
+        throw error
     */
-    if (pt != PriceType::StopLimitOnQuote) {
-        std::cout << "Threshold: " << pv.threshold << "\n"; 
-    } 
-    else {
-        std::cout << "Stop Price: " << pv.stop << "\n"; 
-        std::cout << "Limit: " << pv.limit << "\n"; 
+
+    if (pt == PriceType::Market || pt == PriceType::MarketOnClose) {
+        return "PriceType::Market/MarketOnClose do not need PriceValue defined.";
     }
+    else if ( pt == PriceType::Limit || pt == PriceType::StopOnQuote ||
+             pt == PriceType::TrailingStopDollar || pt == PriceType::TrailingStopPercent ) {
+       return "Threshold: " + std::to_string(pv.threshold); 
+    } 
+
+    else if ( pt == PriceType::StopLimitOnQuote ) {
+        return "Stop Price: " + std::to_string(pv.stop) + ", Limit: " + std::to_string(pv.limit) + "."; 
+    }
+
+    else {
+        throw std::invalid_argument("[to_string] Unhandled PriceType, cannot print PriceValue for: " + to_string(pt));
+    }
+}
+
+void validate_price_value(PriceType pt, PriceValue pv) {
+    switch (pt) {
+        case PriceType::Market:
+        case PriceType::MarketOnClose:
+            return;
+
+        case PriceType::Limit:
+        case PriceType::StopOnQuote:
+        case PriceType::TrailingStopDollar:
+        case PriceType::TrailingStopPercent:
+            if (!std::isfinite(pv.threshold) || pv.threshold <= 0.0f) {
+                throw std::invalid_argument(
+                    "PriceValue.threshold must be a positive finite value for PriceType::" + to_string(pt));
+            }
+            return; // allows correct values to return 
+
+        case PriceType::StopLimitOnQuote:
+            if (!std::isfinite(pv.stop) || pv.stop <= 0.0f ||
+                !std::isfinite(pv.limit) || pv.limit <= 0.0f) {
+                throw std::invalid_argument(
+                    "PriceValue.stop/limit must be positive finite values for PriceType::StopLimitOnQuote");
+            }
+            return; // allows correct values to return 
+
+        case PriceType::COUNT:
+            break;  // falls through to the throw below
+    }
+
+    throw std::invalid_argument("Unhandled PriceType (raw value: " + std::to_string(static_cast<int>(pt)) + ")");
 }
