@@ -1,5 +1,5 @@
 // Author: Alden Sahi
-// Date: 07/17/2026
+// Date: 07.17.2026
 // Program Name: MarketTypes.h
 // Program Description:
 /*  
@@ -10,16 +10,25 @@
 */
 
 #pragma once
-
 #include <cstdint>
 #include <string>
+
+union PriceValue {
+    double threshold;           // Utilized by StopOnQuote, Limit, TrailingStopDollar, TrailingStopPercent
+    struct {                    // Utilized by StopLimitonQuote
+        double stop;
+        double limit;
+    };
+};
 
 
 enum class ActionType : uint8_t {
     Buy,
     Sell,
-    BuyOnCover
+    BuyOnCover,
+    COUNT // yields # if elements in enum, useful for ranges :)
 };
+
 
 enum class PriceType : uint8_t {
     Market,
@@ -29,11 +38,14 @@ enum class PriceType : uint8_t {
     StopLimitOnQuote,
     TrailingStopDollar,
     TrailingStopPercent,
+    COUNT                   // yields # if elements in enum, useful for ranges :)
 };
 
+
 // Helper Functions 
-std::string to_string(PriceType price_type);
-std::string to_string(ActionType action_type);
+std::string to_string(PriceType pt);
+std::string to_string(ActionType at);
+void to_string(PriceType pt, PriceValue pv);
 
 
 

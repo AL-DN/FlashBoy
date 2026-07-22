@@ -1,22 +1,19 @@
 // Author: Alden Sahi
-// Date: 07/17/2026
+// Date: 07.17.2026
 // Program Name: MarketTypeHelpers.cpp
 // Program Description:
 /*  
-    C++ does not have a built-in way to convert enum values to strings s.t they can be printed in console. 
+    C++ does not have a built-in way to convert enum class values to strings s.t they can be printed in console. 
     This file provides helper functions to convert the ActionType and PriceType enums to their string representations.
 */
 
-
 #include <string>
-
+#include <iostream>
 #include "MarketTypes.h"
 
-
-// Overload to_string to work for ActionType and PriceType enums
-std::string to_string(PriceType price_type) {
+std::string to_string(PriceType pt) {
     // Converts PriceType to a string (can only print fundamental types to console)
-    switch (price_type) {
+    switch (pt) {
         case PriceType::Market:              return "Market";
         case PriceType::MarketOnClose:       return "MarketOnClose";
         case PriceType::Limit:               return "Limit";
@@ -27,11 +24,34 @@ std::string to_string(PriceType price_type) {
     }
     return "unknown";
 }
-std::string to_string(ActionType action_type) {
-    switch (action_type) {
+
+
+std::string to_string(ActionType at) {
+    // Converts PriceType to a string (can only print fundamental types to console)
+    switch (at) {
         case ActionType::Buy:                return "Buy";
         case ActionType::Sell:               return "Sell";
         case ActionType::BuyOnCover:         return "BuyOnCover";
     }
     return "unknown";
+}
+
+
+void to_string(PriceType pt, PriceValue pv) {
+    // Converts PriceType to a string (can only print fundamental types to console)
+    /* PSUEDOCODE
+    
+    if not stoplimitonquote
+        print threshold
+    else
+        print stop and limit
+    
+    */
+    if (pt != PriceType::StopLimitOnQuote) {
+        std::cout << "Threshold: " << pv.threshold << "\n"; 
+    } 
+    else {
+        std::cout << "Stop Price: " << pv.stop << "\n"; 
+        std::cout << "Limit: " << pv.limit << "\n"; 
+    }
 }
