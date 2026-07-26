@@ -22,10 +22,11 @@ int main() {
     new_order.get_info();
 
     PriceAction price_mvmt{};
-    std::cout << price_mvmt.new_timestep() << "\n";
-    std::cout << price_mvmt.new_timestep() << "\n";
-    std::cout << price_mvmt.new_timestep() << "\n";
-
-
+    std::cout << std::to_string(price_mvmt.sample_price()) << "\n";
+    std::cout << std::to_string(price_mvmt.sample_price()) << "\n";
+    std::cout << std::to_string(price_mvmt.sample_price()) << "\n";
+    std::cout << std::to_string(price_mvmt.sample_price()) << "\n";
+    std::cout << std::to_string(price_mvmt.sample_price()) << "\n";
+    std::cout << std::to_string(price_mvmt.sample_price()) << "\n";
     return 0;
 }
