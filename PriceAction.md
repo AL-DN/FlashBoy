@@ -1,4 +1,4 @@
-# Order Class
+# PriceAction Class
 
 **- double S0** 
 Initial Stock Price

@@ -8,25 +8,25 @@
 
 
 #include <random>
-#include <cmath>
-#include <vector>
 #include <iostream>
 
 
 
 class PriceAction {
-    
-    double S0;      // intial stock price
-    double mu;      // dift (expected annual return)
-    double sigma;   // volatility (annualized)
-    double T;       // time horizon in years
-    int N;          // number of time steps 
-    double dt;       // size of each time step 
+    private:
+        double S0;      // intial stock price
+        double mu;      // drift (expected annual return)
+        double sigma;   // volatility (annualized)
+        double T;       // time horizon in years
+        int N;          // number of time steps 
+        double dt;       // size of each time step 
 
-    // Intializes N(0,1)
+        // Declares N(0,1) in the Class Body allows for upon object creation
+        std::mt19937 gen{std::random_device{}()};
+        std::normal_distribution<double> norm_dist{0.0,1.0};
 
-
-    PriceAction (double new_S0 = 100.0, double mu = 0.05, double sigma = 0.2, double T = 1.0, int N = 252);
-    double new_timestep(double new_S0 = 100.0, double mu = 0.05, double sigma = 0.2, double T = 1.0, int N = 252);
+    public:
+        PriceAction (double new_S0 = 100.0, double new_mu = 0.05, double sigma = 0.2, double T = 1.0, int N = 252);
+        double new_timestep();
 
 };
