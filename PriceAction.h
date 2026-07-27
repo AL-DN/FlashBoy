@@ -6,11 +6,7 @@
     Allows sampling at a δ
 */
 
-
 #include <random>
-#include <iostream>
-
-
 
 class PriceAction {
     private:
@@ -24,10 +20,10 @@ class PriceAction {
 
         std::mt19937 gen{std::random_device{}()};
         std::normal_distribution<double> norm_dist{0.0, 1.0};
-        std::normal_distribution<double> sample_dist;
+        std::normal_distribution<double> sample_dist;   // Initalized Later when spread is contructed + defined
 
     public:
         PriceAction (double new_S0 = 100.0, double new_mu = 0.05, double sigma = 0.2, double T = 1.0, int N = 252, double new_spread = 0.50);
         double new_timestep();
         double sample_price();
-}
+};

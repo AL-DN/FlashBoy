@@ -4,6 +4,8 @@
 #include "Order.h"
 #include "MarketTypes.h"
 #include "PriceAction.h"
+#include "Arrival.h"
+#include <chrono>
 
 
 // Order generate_random_order() {
@@ -28,5 +30,10 @@ int main() {
     std::cout << std::to_string(price_mvmt.sample_price()) << "\n";
     std::cout << std::to_string(price_mvmt.sample_price()) << "\n";
     std::cout << std::to_string(price_mvmt.sample_price()) << "\n";
+
+    Arrival arrival{2.0, 2.0};
+    std::chrono::time_point< std::chrono::system_clock> nw = std::chrono::system_clock::now();
+    std::cout << std::to_string(arrival.get_norm_time(nw)) << "\n";
     return 0;
 }
+

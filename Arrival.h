@@ -9,10 +9,20 @@
         time of day.
 */
 
+#include <random>
+#include <chrono>
+#include <stdexcept>
+
+
 class Arrival {
     private:
-        
-    public:
-        Arrival::Arrival();
+        double peak_lambda;
+        double wavelength;
+        std::poisson_distribution<int> arrival_dist;
 
-}
+    public:
+        Arrival(double new_peak_lambda, double new_wavelength);
+        double get_norm_time(std::chrono::time_point<std::chrono::system_clock> raw_time =
+        std::chrono::system_clock::now() );
+
+};

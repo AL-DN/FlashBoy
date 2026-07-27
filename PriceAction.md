@@ -30,11 +30,10 @@ Logic:
 **next_timestep**
 Calculates and Returns $S_{T+1}$
 
-**run_simulation**
-runs simulation for numSteps 
+
 
 **sample_price**
-samples price + V~N(0,spread -> **NOT SURE HOW TO SPECIFY YET**)
+samples price + V~N(0,sprea)
 
 
 ### Next Steps
