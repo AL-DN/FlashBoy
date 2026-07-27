@@ -23,7 +23,7 @@ $$
 
 **- double get_lambda(norm_time)**
 ```
-lambda(norm_time) = peak_lambda * cos((2π / wavelength) * norm_time)
+lambda(norm_time) = peak_lambda * cos((2π / wavelength) * norm_time) + peak_lambda
 ```
 
 **- get_network_latency()**

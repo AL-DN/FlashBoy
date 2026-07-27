@@ -20,7 +20,7 @@ int main() {
     pv.stop = 0.5;
     pv.limit = 0.5;
 
-    Order new_order (ActionType::Buy, PriceType::StopLimitOnQuote, pv, 100);
+    Order new_order {ActionType::Buy, PriceType::StopLimitOnQuote, pv, 100};
     new_order.get_info();
 
     PriceAction price_mvmt{};
@@ -31,9 +31,15 @@ int main() {
     std::cout << std::to_string(price_mvmt.sample_price()) << "\n";
     std::cout << std::to_string(price_mvmt.sample_price()) << "\n";
 
-    Arrival arrival{2.0, 2.0};
+    Arrival arrival{2.0, 2.0, 1.0};
     std::chrono::time_point< std::chrono::system_clock> nw = std::chrono::system_clock::now();
     std::cout << std::to_string(arrival.get_norm_time(nw)) << "\n";
+    
+    
+    std::cout << std::to_string(arrival.get_network_latency()) << "\n";
+
+    
+    
     return 0;
 }
 
