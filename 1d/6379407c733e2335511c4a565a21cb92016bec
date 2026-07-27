@@ -1,0 +1,31 @@
+Arrival.h
+  h_df99cb596cd5e6 21-24,28,30-31
+  s_60b400db4d01e1::t_001e02e62eebb6 29
+Arrival.cpp
+  h_df99cb596cd5e6 13-15,17,20,23-35,38-41,43-44,46,56,61-66,68-70
+test.cpp
+  h_df99cb596cd5e6 23,34,37-42
+Arrival.md
+  h_df99cb596cd5e6 26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "1d6379407c733e2335511c4a565a21cb92016bec",
+  "prompts": {},
+  "humans": {
+    "h_df99cb596cd5e6": {
+      "author": "AL-DN <aldensahi50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_60b400db4d01e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "90d0ce83-2b92-414f-815b-0e251d9c0892",
+        "model": "unknown"
+      },
+      "human_author": "AL-DN <aldensahi50@gmail.com>"
+    }
+  }
+}
