@@ -1,7 +1,7 @@
 # Arrival Class
 
 **- double peak_lambda**
-Allows specification for greatest lambda that will be passed to poisson dist (passed to lambda function as Amplitutde)
+Allows specification for greatest lambda that will be passed to poisson dist (passed to lambda function as Amplitutde) but in this use case is **largest average orders this exchange will see.**
 
 **- double wavelength**
 Amount of hours in between peaks
@@ -26,11 +26,11 @@ $$
 lambda(norm_time) = peak_lambda * cos((2π / wavelength) * norm_time) + peak_lambda
 ```
 
-**- get_network_latency()**
+**- get_orders_created_during_subinterval()**
     
     1. double norm_time = get_norm_time(raw_time)
     2. double lambda = get_lambda(norm_time)
     3. Set poisson lambda = lambda
-    4. return sample from poisson
+    4. return sample from poisson // number of orders seen in a given interval ( signal on how many order objects to create at a given timestep)
     
     

@@ -43,7 +43,7 @@ double Arrival::get_norm_time(std::chrono::time_point<std::chrono::system_clock>
     
     // REMOVES YYYY_MM_DD from LocalTime to extract HH_MM__SS
     hh_mm_ss time_of_day{local_time.get_local_time() - local_days};
-    std::cout << time_of_day << "\n";
+    //std::cout << time_of_day << "\n";
 
     double hours_since_midnight = time_of_day.hours().count()
         + time_of_day.minutes().count() / 60.0
@@ -60,11 +60,17 @@ double Arrival::get_norm_time(std::chrono::time_point<std::chrono::system_clock>
 
 }
 
-double Arrival::get_network_latency() {
+int Arrival::get_orders_created_during_subinterval() {
 
     // Ensure Lambda is current
     set_lambda(get_norm_time());
 
     // NOTE: UNSURE WHAT UNIT IS OUTPUT
     return arrival_dist(gen);
-};
+}
+
+
+/*
+
+
+*/

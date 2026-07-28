@@ -32,7 +32,8 @@ Order::Order(ActionType new_action_type, PriceType new_price_type,
     quantity = new_quantity;
     init_time = new_init_time;
     symbol = new_symbol;
-    is_active = new_is_active;  
+    is_active = new_is_active; 
+    arrival_time = new_init_time + Arrival.get_network_latency();
 
     }
 

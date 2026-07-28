@@ -20,6 +20,7 @@ class Arrival {
         double wavelength;
         double min_lambda;
 
+
         // Arrival Dist Setup
         std::mt19937 gen{std::random_device{}()};
         std::poisson_distribution<int> arrival_dist;
@@ -28,6 +29,8 @@ class Arrival {
         Arrival(double new_peak_lambda = 3.0, double new_wavelength = 3.0, double new_min_lambda = 1.0);
         double get_norm_time(std::chrono::time_point<std::chrono::system_clock> raw_time = std::chrono::system_clock::now() );
         void set_lambda(double hours_from_open);
-        double get_network_latency();
+        int get_orders_created_during_subinterval();
+        void set_time_till_next_order();
 
 };
+

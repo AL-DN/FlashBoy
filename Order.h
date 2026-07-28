@@ -9,6 +9,7 @@
 #include <cstdint>
 #include <chrono>
 #include "MarketTypes.h"
+// #include "Arrival.h"
 
 class Order {
     private:
@@ -19,6 +20,14 @@ class Order {
         PriceValue price_value;
         uint16_t quantity;
         std::chrono::time_point<std::chrono::system_clock> init_time;
+
+
+        // Arrival Time
+        double peak_lambda;
+        double min_lambda;
+        double wavelength;
+        
+        // Arrival arrival_generator{};
         // std::chrono::time_point<std::chrono::system_clock> arrival_time;
         // std::chrono::time_point<std::chrono::system_clock> expiration_date;
 
@@ -38,4 +47,4 @@ class Order {
         // void set_quantity(); // Ensures Bounds of using16_t are not exceeded.
 
 
-    };
+    }; 
