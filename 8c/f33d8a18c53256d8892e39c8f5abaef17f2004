@@ -1,0 +1,58 @@
+Arrival.cpp
+  h_df99cb596cd5e6 46,63,71-76
+  s_60b400db4d01e1::t_3958024cb0f93f 70
+generate_orders.cpp
+  h_df99cb596cd5e6 1-5,8-10,18-36,40-44,46-81
+Arrival.md
+  h_df99cb596cd5e6 4,34
+  s_8d137d069b9cbf::t_cc43e0982f46c0 29
+Order.h
+  h_df99cb596cd5e6 12,23-30
+  s_01511277055249::t_9df926b1312233 50
+OrderPriorityQueue.h
+  h_df99cb596cd5e6 1-25
+Arrival.h
+  h_df99cb596cd5e6 32-34
+  s_60b400db4d01e1::t_c9bb3aeb6d80de 23,35
+OrderPriorityQueue.cpp
+  h_df99cb596cd5e6 1-15
+Order.cpp
+  s_01511277055249::t_7e13e503c4f6cc 35-36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "8cf33d8a18c53256d8892e39c8f5abaef17f2004",
+  "prompts": {},
+  "humans": {
+    "h_df99cb596cd5e6": {
+      "author": "AL-DN <aldensahi50@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_01511277055249": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ea392ee9-109a-4d11-8a60-ba1f1f9ae65f",
+        "model": "unknown"
+      },
+      "human_author": "AL-DN <aldensahi50@gmail.com>"
+    },
+    "s_60b400db4d01e1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "90d0ce83-2b92-414f-815b-0e251d9c0892",
+        "model": "unknown"
+      },
+      "human_author": "AL-DN <aldensahi50@gmail.com>"
+    },
+    "s_8d137d069b9cbf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ee9c60f7-6be5-4c9f-b677-1618720e0c34",
+        "model": "unknown"
+      },
+      "human_author": "AL-DN <aldensahi50@gmail.com>"
+    }
+  }
+}
